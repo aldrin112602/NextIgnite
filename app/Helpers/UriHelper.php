@@ -29,14 +29,11 @@ public static function getParams($uri)
  *
  * @param string $uri The URI from which to remove parameters.
  * @return string The URI without any parameters.
- * @throws \Exception If the provided URI is not valid.
+ * 
  *
  */
 public static function removeParams($uri)
 {
-    if (!filter_var($uri, FILTER_VALIDATE_URL)) {
-        throw new \Exception('Invalid URI');
-    }
     
     $parsedUrl = parse_url($uri);
     $url = $parsedUrl['path'];
