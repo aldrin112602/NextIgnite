@@ -14,7 +14,7 @@ class Router
      *
      * @return void
      */
-    public function add($uri, $controller)
+    public function route($uri, $controller)
     {
         $this->routes[$uri] = $controller;
     }
@@ -31,13 +31,13 @@ class Router
         // Check if a route exists for the given URI
         if (array_key_exists($uri, $this->routes)) {
             // Get the fully qualified class name of the controller for the route
-            $controller = $this->routes[$uri];
+            [$controller, $method] = $this->routes[$uri];
 
             // Instantiate the controller class
             $controller = new $controller;
 
             // Call the handle method on the controller to handle the request
-            $controller->handle();
+            $controller->{$method}();
         } else {
             // If no route exists for the given URI, display a 404 Not Found message
             echo "404 Not Found";

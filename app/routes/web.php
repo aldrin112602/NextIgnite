@@ -10,5 +10,5 @@ $router = new Router();
 
 
 // Define routes
-$router->add('/', HomeController::class); // Home route
-$router->add('/login', AuthController::class); // Login route
+$router->route('/', [HomeController::class, 'index']);
+$router->route('/login', [AuthController::class, 'login']);

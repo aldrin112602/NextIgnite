@@ -5,6 +5,12 @@ require '../vendor/autoload.php';
 use App\Helpers\UriHelper;
 
 
+/**
+ * Extracts the route parts from the request URI based on the given base path.
+ *
+ * @param string $basePath The base path to remove from the request URI.
+ * @return array An array of route parts extracted from the request URI.
+ */
 function extractRoute($basePath)
 {
     if (substr($basePath, -1) !== '/') $basePath .= '/';
