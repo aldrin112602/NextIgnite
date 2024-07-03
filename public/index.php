@@ -1,6 +1,7 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
+require_once '../app/Config/app.php';
 
 use App\Helpers\UriHelper;
 use Dotenv\Dotenv;
