@@ -3,7 +3,11 @@
 require '../vendor/autoload.php';
 
 use App\Helpers\UriHelper;
+use Dotenv\Dotenv;
 
+// Load .env file
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 /**
  * Extracts the route parts from the request URI based on the given base path.

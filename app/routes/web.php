@@ -11,4 +11,5 @@ $router = new Router();
 
 // Define routes
 $router->route('/', [HomeController::class, 'index']);
+$router->route('/sendMail', [HomeController::class, 'sendEmail']);
 $router->route('/login', [AuthController::class, 'login']);
