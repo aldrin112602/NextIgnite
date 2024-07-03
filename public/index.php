@@ -2,25 +2,23 @@
 
 require '../vendor/autoload.php';
 
-use App\Core\Router;
-use App\Controllers\AuthController;
-use App\Controllers\HomeController;
+use App\Helpers\UriHelper;
 
-// Create a new router instance
-$router = new Router();
 
-// Define routes
-$router->add('/', HomeController::class); // Home route
-$router->add('/login', AuthController::class); // Login route
-
-// Get the current URI
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-// Adjust URI for base path
-$basePath = '/oop_based/public';
-if (strpos($uri, $basePath) === 0) {
-    $uri = substr($uri, strlen($basePath));
+function extractRoute($basePath)
+{
+    if (substr($basePath, -1) !== '/') $basePath .= '/';
+    $route = str_replace($basePath, '', $_SERVER['REQUEST_URI']);
+    $routeParts = array_filter(explode('/', $route));
+    if (count($routeParts) == 0) $routeParts[] = '';
+    return $routeParts;
 }
 
-// Dispatch the request to the appropriate controller
+$basePath = '/' . array_filter(explode('/', $_SERVER['REQUEST_URI']))[1] . '/';
+$routeParts = extractRoute($basePath);
+$uri = '/' . UriHelper::removeParams($routeParts[count($routeParts) - 1]);
+
+// import router here
+require_once '../app/routes/web.php';
+
 $router->dispatch($uri);
