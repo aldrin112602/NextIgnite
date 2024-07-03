@@ -29,6 +29,6 @@ $routeParts = extractRoute($basePath);
 $uri = '/' . UriHelper::removeParams($routeParts[count($routeParts) - 1]);
 
 // import router here
-require_once '../app/routes/web.php';
+require_once '../app/Routes/web.php';
 
 $router->dispatch($uri);
