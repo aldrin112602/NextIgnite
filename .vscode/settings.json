@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.nxt.php": "next"
+    },
+    "material-icon-theme.files.associations": {
+        "*.nxt.php": "next"
+    }
+}
