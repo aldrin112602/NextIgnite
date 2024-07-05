@@ -14,7 +14,7 @@ class MakeModelCommand
     public function run($args)
     {
         if (count($args) < 1) {
-            echo "\033[31m Usage: composer next make:model <ModelName> \033[0m\n";
+            echo "\033[31m Usage: composer ignite make:model <ModelName> \033[0m\n";
             exit(1);
         }
 
