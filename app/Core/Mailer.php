@@ -19,15 +19,15 @@ class Mailer
     {
         // Server settings
         $this->mail->isSMTP();
-        $this->mail->Host = $_ENV['MAIL_HOST'];
+        $this->mail->Host = $_ENV['MAIL_HOST'] ?? null;
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = $_ENV['MAIL_USERNAME'];
-        $this->mail->Password = $_ENV['MAIL_PASSWORD'];
-        $this->mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
-        $this->mail->Port = $_ENV['MAIL_PORT'];
+        $this->mail->Username = $_ENV['MAIL_USERNAME'] ?? null;
+        $this->mail->Password = $_ENV['MAIL_PASSWORD'] ?? null;
+        $this->mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'] ?? null;
+        $this->mail->Port = $_ENV['MAIL_PORT'] ?? null;
 
         // Sender info
-        $this->mail->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
+        $this->mail->setFrom($_ENV['MAIL_FROM_ADDRESS'] ?? null, $_ENV['MAIL_FROM_NAME'] ?? null);
     }
 
     public function sendMail($to, $subject, $body, $altBody = '')
@@ -43,11 +43,9 @@ class Mailer
             $this->mail->AltBody = $altBody;
 
             $this->mail->send();
-            // echo 'Message has been sent';
             return true;
             
         } catch (Exception $e) {
-            // echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
             return false;
         }
     }
