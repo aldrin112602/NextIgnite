@@ -1,4 +1,14 @@
 {
+    "name": "next-php/next-php",
+    "description": "Light-weight PHP framework for building dynamic web applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aldrin Caballero",
+            "email": "caballeroaldrin02@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
