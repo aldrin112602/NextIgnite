@@ -20,7 +20,7 @@
         "post-autoload-dump": [
             "Composer\\Script\\ClassLoader::addIncludePath"
         ],
-        "next": [
+        "ignite": [
             "php cli/cli.php"
         ]
     },
