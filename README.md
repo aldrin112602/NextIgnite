@@ -12,7 +12,16 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
 - **Validation**: Comprehensive validation library.
 
 ## Installation
+- clone this repository
+- `cd NextIgnite`
+- `composer install`
 
+## Available CLI commands
+- `composer ignite make:view SampleView` Output: `app/Views/SampleView.nxt.php`
+- `composer ignite make:view auth.signUp` Output: `app/Views/auth/signUp.nxt.php`
+- `composer ignite make:model SampleModel` Output: `app/Models/SampleModel.php`
+
+## Using Composer (Not available for now)
 To install NextIgnite, you can use Composer:
 
 ```bash
