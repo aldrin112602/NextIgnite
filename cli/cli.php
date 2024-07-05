@@ -15,7 +15,7 @@ $commands = [
 ];
 
 if ($argc < 2) {
-    echo "Usage: composer next <command> [options]\n";
+    echo "Usage: composer ignite <command> [options]\n";
     echo "Available commands:\n";
     foreach ($commands as $command => $class) {
         echo "  - $command\n";
@@ -33,7 +33,7 @@ if (!isset($commands[$command])) {
 $class = $commands[$command];
 $instance = new $class($config);
 
-array_shift($argv); // Remove the script name
-array_shift($argv); // Remove the command name
+array_shift($argv);
+array_shift($argv);
 
 $instance->run($argv);
