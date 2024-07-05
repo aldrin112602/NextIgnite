@@ -1,4 +1,4 @@
-# NextPHP
+# NextIgnite
 
 NextIgnite is a light-weight PHP framework designed for building full-stack web applications. It aims to provide a simple and efficient structure to help you quickly develop robust web applications with ease.
 
