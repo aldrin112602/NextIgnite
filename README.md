@@ -1,6 +1,6 @@
 # NextPHP
 
-NextPHP is a light-weight PHP framework designed for building full-stack web applications. It aims to provide a simple and efficient structure to help you quickly develop robust web applications with ease.
+NextIgnite is a light-weight PHP framework designed for building full-stack web applications. It aims to provide a simple and efficient structure to help you quickly develop robust web applications with ease.
 
 ## Features available or to be Implemented
 
@@ -13,10 +13,10 @@ NextPHP is a light-weight PHP framework designed for building full-stack web app
 
 ## Installation
 
-To install NextPHP, you can use Composer:
+To install NextIgnite, you can use Composer:
 
 ```bash
-composer require nextphp/nextphp
+composer require nextIgnite/nextIgnite
 ```
 
 ## Getting Started
@@ -24,14 +24,14 @@ composer require nextphp/nextphp
 1. **Create a new project directory:**
 
    ```bash
-   mkdir my-nextphp-app
-   cd my-nextphp-app
+   mkdir my-nextIgnite-app
+   cd my-nextIgnite-app
    ```
 
-2. **Install NextPHP using Composer:**
+2. **Install NextIgnite using Composer:**
 
    ```bash
-   composer require nextphp/nextphp
+   composer require nextIgnite/nextIgnite
    ```
 
 3. **Create a basic application structure:**
@@ -65,4 +65,4 @@ composer require nextphp/nextphp
 
 ## License
 
-NextPHP is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+NextIgnite is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
