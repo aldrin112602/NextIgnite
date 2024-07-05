@@ -2,7 +2,7 @@
 
 namespace App\Cli;
 
-class MakeModelCommand
+class MakeViewCommand
 {
     protected $config;
 
@@ -14,36 +14,37 @@ class MakeModelCommand
     public function run($args)
     {
         if (count($args) < 1) {
-            echo "\033[31m Usage: composer next make:model <ModelName> \033[0m\n";
+            echo "\033[31m Usage: composer next make:view <ViewName> \033[0m\n";
             exit(1);
         }
 
-        $modelName = $args[0];
-        $modelPath = __DIR__ . '/../Models/' . $modelName . '.php';
+        $viewName = $args[0];
+        $viewPath = __DIR__ . '/../Views/' . str_replace('.', '/', $viewName) . '.php';
+        $viewDir = dirname($viewPath);
 
-        if (file_exists($modelPath)) {
-            echo "\033[31m Model already exists: $modelPath \033[0m\n";
+        if (file_exists($viewPath)) {
+            echo "\033[31m View already exists: $viewPath \033[0m\n";
             exit(1);
         }
 
-        $modelTemplate = $this->getModelTemplate($modelName);
+        if (!is_dir($viewDir)) {
+            mkdir($viewDir, 0777, true);
+        }
 
-        file_put_contents($modelPath, $modelTemplate);
+        $viewTemplate = $this->getViewTemplate($viewName);
 
-        echo "\033[32m Model created successfully at: $modelPath  \033[0m\n";
+        file_put_contents($viewPath, $viewTemplate);
+
+        echo "\033[32m View created successfully at: $viewPath  \033[0m\n";
         echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
     }
 
-    protected function getModelTemplate($modelName)
+    protected function getViewTemplate($viewName)
     {
-        return "<?php
-
-namespace App\Models;
-
-class $modelName
-{
-    // Define your model properties and methods here
-}
+        $quote = $this->getRandomQuote();
+        return "
+<h1>View file created</h1>
+<p>{$quote}</p>
 ";
     }
 

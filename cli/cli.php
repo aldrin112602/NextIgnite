@@ -11,6 +11,7 @@ $config = require __DIR__ . '/../app/Config/config.php';
 
 $commands = [
     'make:model' => \App\Cli\MakeModelCommand::class,
+    'make:view' => \App\Cli\MakeViewCommand::class,
 ];
 
 if ($argc < 2) {
