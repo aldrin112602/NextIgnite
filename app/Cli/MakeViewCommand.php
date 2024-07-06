@@ -41,5 +41,4 @@ class MakeViewCommand extends Command
 <p>{$quote}</p>
 ";
     }
-
 }

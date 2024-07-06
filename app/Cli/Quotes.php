@@ -91,9 +91,7 @@ class Quotes
             "You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
             "A goal is not always meant to be reached; it often serves simply as something to aim at. - Bruce Lee",
             "You don’t have to be great to start, but you have to start to be great. - Zig Ziglar",
-            "Success is not in what you have, but who you are. - Bo
-
- Bennett",
+            "Success is not in what you have, but who you are. - Bo Bennett",
             "I am not a product of my circumstances. I am a product of my decisions. - Stephen R. Covey",
             "You are never too old to set another goal or to dream a new dream. - Les Brown",
             "If you can dream it, you can do it. - Walt Disney",

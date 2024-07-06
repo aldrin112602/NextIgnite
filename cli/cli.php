@@ -15,18 +15,23 @@ $commands = [
 ];
 
 if ($argc < 2) {
-    echo "Usage: composer ignite <command> [options]\n";
+    echo "\033[36m Usage: composer ignite <command> [options]\n";
+    echo "\033[33m";
     echo "Available commands:\n";
+    echo "\033[32m";
     foreach ($commands as $command => $class) {
         echo "  - $command\n";
     }
+    echo "\033[0m";
     exit(1);
 }
 
 $command = $argv[1];
 
 if (!isset($commands[$command])) {
+    echo "\033[31m";
     echo "Unknown command: $command\n";
+    echo "\033[0m";
     exit(1);
 }
 
