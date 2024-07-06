@@ -64,6 +64,8 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
    - Create models in the `app/Models` directory.
    - Create views in the `app/Views` directory.
 
+### Contributions
+- Your feedback and contributions are highly appreciated.
 
 ## License
 
