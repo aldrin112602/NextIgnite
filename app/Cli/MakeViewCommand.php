@@ -13,7 +13,7 @@ class MakeViewCommand extends Command
         }
 
         $viewName = $args[0];
-        $viewPath = __DIR__ . '/../Views/' . str_replace('.', '/', $viewName) . '.php';
+        $viewPath = __DIR__ . '/../Views/' . str_replace('.', '/', $viewName) . '.nxt.php';
         $viewDir = dirname($viewPath);
 
         if (file_exists($viewPath)) {

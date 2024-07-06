@@ -30,7 +30,9 @@ if (!isset($commands[$command])) {
     exit(1);
 }
 
+/** @var string $class */
 $class = $commands[$command];
+/** @var Command $instance */
 $instance = new $class($config);
 
 array_shift($argv);
