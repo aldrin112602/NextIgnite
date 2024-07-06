@@ -1,8 +1,7 @@
 {
-    "name": "nextIgnite/nextIgnite",
+    "name": "next-ignite/next-ignite",
     "description": "Light-weight PHP framework for building dynamic web applications",
     "type": "library",
-    "license": "MIT",
     "authors": [
         {
             "name": "Aldrin Caballero",
@@ -25,8 +24,14 @@
         ]
     },
     "require": {
-        "php": ">=7.0",
+        "vlucas/phpdotenv": "^5.6",
+        "phpmailer/phpmailer": "^6.9",
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "php": "^8.2",
         "vlucas/phpdotenv": "^5.6",
         "phpmailer/phpmailer": "^6.9"
-    }
+    },
+    "license": "MIT"
 }
