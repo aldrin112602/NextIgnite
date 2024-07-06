@@ -2,14 +2,8 @@
 
 namespace App\Cli;
 
-class MakeViewCommand extends Qoutes
+class MakeViewCommand extends Command
 {
-    protected $config;
-
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
 
     public function run($args)
     {

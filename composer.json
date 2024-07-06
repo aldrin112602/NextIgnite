@@ -16,9 +16,6 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
-            "Composer\\Script\\ClassLoader::addIncludePath"
-        ],
         "ignite": [
             "php cli/cli.php"
         ]

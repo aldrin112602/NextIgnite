@@ -2,14 +2,9 @@
 
 namespace App\Cli;
 
-class MakeModelCommand extends Qoutes
+class MakeModelCommand extends Command
 {
-    protected $config;
-
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
+    
 
     public function run($args)
     {
