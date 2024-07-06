@@ -14,7 +14,7 @@ class Router
      *
      * @return void
      */
-    public function route($uri, $controller)
+    public function get($uri, $controller)
     {
         $this->routes[$uri] = $controller;
     }

@@ -21,13 +21,6 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
 - `composer ignite make:view auth.signUp` Output: `app/Views/auth/signUp.nxt.php`
 - `composer ignite make:model SampleModel` Output: `app/Models/SampleModel.php`
 
-## Using Composer (Not available for now)
-To install NextIgnite, you can use Composer:
-
-```bash
-composer require nextIgnite/nextIgnite
-```
-
 ## Getting Started
 
 1. **Create a new project directory:**
@@ -37,13 +30,13 @@ composer require nextIgnite/nextIgnite
    cd my-nextIgnite-app
    ```
 
-2. **Install NextIgnite using Composer:**
-
+2. **Using Composer (Not available for now)**
+ 
    ```bash
-   composer require nextIgnite/nextIgnite
+   composer require next-ignite/next-ignite
    ```
 
-3. **Create a basic application structure:**
+3. **Application structure:**
 
    ```bash
    ├── app
