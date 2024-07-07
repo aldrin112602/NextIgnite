@@ -5,6 +5,13 @@ namespace App\Cli;
 class MakeViewCommand extends Command
 {
 
+    /**
+     * This method is responsible for running the command to create a new view file.
+     *
+     * @param array $args An array of command-line arguments. The first argument should be the view name.
+     *
+     * @return void
+     */
     public function run($args)
     {
         if (count($args) < 1) {
@@ -33,6 +40,13 @@ class MakeViewCommand extends Command
         echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
     }
 
+    /**
+     * This method returns the view template with a random quote.
+     *
+     * @param string $viewName The name of the view file.
+     *
+     * @return string The view template with a random quote.
+     */
     protected function getViewTemplate($viewName)
     {
         $quote = $this->getRandomQuote();

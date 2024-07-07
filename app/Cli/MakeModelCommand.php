@@ -5,7 +5,12 @@ namespace App\Cli;
 class MakeModelCommand extends Command
 {
 
-
+    /**
+     * Runs the command to create a new model.
+     *
+     * @param array $args Command line arguments. The first argument should be the model name.
+     * @return void
+     */
     public function run($args)
     {
         if (count($args) < 1) {
@@ -29,6 +34,13 @@ class MakeModelCommand extends Command
         echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
     }
 
+
+    /**
+     * Returns the model template with the given model name.
+     *
+     * @param string $modelName The name of the model to be created.
+     * @return string The model template with the given model name.
+     */
     protected function getModelTemplate($modelName)
     {
         return "<?php

@@ -5,6 +5,13 @@ namespace App\Cli;
 class MakeControllerCommand extends Command
 {
 
+    /**
+     * This method is responsible for running the command to create a new controller.
+     *
+     * @param array $args The command line arguments. The first argument should be the name of the controller.
+     *
+     * @return void
+     */
     public function run($args)
     {
         if (count($args) < 1) {
@@ -33,7 +40,15 @@ class MakeControllerCommand extends Command
         echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
     }
 
-    protected function getControllerTemplate($controllerName)
+
+
+    /**
+     * This method generates a controller template with a given name.
+     *
+     * @param string $controllerName The name of the controller. It can include namespaces separated by dots.
+     *
+     * @return string The controller template as a string.
+     */    protected function getControllerTemplate($controllerName)
     {
         $quote = $this->getRandomQuote();
         $splitName = explode(".", $controllerName);
