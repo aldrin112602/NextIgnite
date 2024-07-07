@@ -19,6 +19,8 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
 ## Available CLI commands
 - `composer ignite make:view SampleView` Output: `app/Views/SampleView.nxt.php`
 - `composer ignite make:view auth.signUp` Output: `app/Views/auth/signUp.nxt.php`
+- `composer ignite make:controller MyController` Output: `app/Controllers/MyController.php`
+- `composer ignite make:controller admin.MyController` Output: `app/Controllers/admin/MyController.php`
 - `composer ignite make:model SampleModel` Output: `app/Models/SampleModel.php`
 
 ## Getting Started
