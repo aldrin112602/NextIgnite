@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+/***
+ * Do not remove this file
+ * This file allows running a localhost server 
+ * by executing `php ignite serve` on the terminal 
+ * 
+ */
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Command\Command;
+
+class ServeCommand extends Command
+{
+    protected function configure()
+    {
+        $this
+            ->setName('serve')
+            ->setDescription('Start the Next-ignite development server');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $output->writeln('<info>Starting Next-ignite development server...</info>');
+        $output->writeln('Server running at http://localhost:8000');
+        
+
+        $documentRoot = __DIR__;
+        passthru("php -S localhost:8000 -t $documentRoot");
+        
+        return Command::SUCCESS;
+    }
+}
+
+$application = new Application();
+$application->add(new ServeCommand());
+$application->run();
