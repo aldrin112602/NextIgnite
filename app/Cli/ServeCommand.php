@@ -9,12 +9,12 @@ use Symfony\Component\Process\Process;
 
 class ServeCommand extends Command
 {
-    protected static $defaultName = 'serve'; // Ensure this line is correct
+    protected static $defaultName = 'serve';
 
     protected function configure()
     {
         $this
-            ->setName('serve') // Set the command name
+            ->setName('serve')
             ->setDescription('Starts the development server')
             ->setHelp('This command starts the PHP built-in server for development.');
     }
@@ -31,7 +31,7 @@ class ServeCommand extends Command
         $output->writeln('<comment>Press Ctrl+C to stop the server</comment>');
 
         while ($process->isRunning()) {
-            // Waiting for the server process to finish
+            // server running...
         }
 
         return Command::SUCCESS;
