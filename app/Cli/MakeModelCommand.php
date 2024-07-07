@@ -2,47 +2,54 @@
 
 namespace App\Cli;
 
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+
 class MakeModelCommand extends Command
 {
-
-    /**
-     * Runs the command to create a new model.
-     *
-     * @param array $args Command line arguments. The first argument should be the model name.
-     * @return void
-     */
-    public function run($args)
+    protected function configure()
     {
-        if (count($args) < 1) {
-            echo "\033[36m Usage: composer ignite make:model <ModelName> \033[0m\n";
-            exit(1);
+        $this
+            ->setName('make:model')
+            ->setDescription('Creates a new model file')
+            ->addArgument('modelName', InputArgument::REQUIRED, 'The name of the model file to create');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $modelName = str_replace('.', '/', $input->getArgument('modelName'));
+
+        $path = __DIR__ . "/../Models/{$modelName}.php";
+        $dir = dirname($path);
+
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
         }
 
-        $modelName = $args[0];
-        $modelPath = __DIR__ . '/../Models/' . $modelName . '.php';
+        if (!file_exists($path)) {
+            file_put_contents($path, $this->getTemplate($modelName));
+            $quote = Quotes::getRandomQuote();
+            $output->writeln("<info>Model created successfully at: {$path}</info>");
 
-        if (file_exists($modelPath)) {
-            echo "\033[31m Model already exists: $modelPath \033[0m\n";
-            exit(1);
+            $style = new OutputFormatterStyle('yellow');
+            $output->getFormatter()->setStyle('quote', $style);
+            $output->writeln("<quote>Quote: {$quote}</quote>");
+        } else {
+            $output->writeln("<error>Model already exists: {$path}</error>");
         }
 
-        $modelTemplate = $this->getModelTemplate($modelName);
-
-        file_put_contents($modelPath, $modelTemplate);
-
-        echo "\033[32m Model created successfully at: $modelPath  \033[0m\n";
-        echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
+        return Command::SUCCESS;
     }
 
 
-    /**
-     * Returns the model template with the given model name.
-     *
-     * @param string $modelName The name of the model to be created.
-     * @return string The model template with the given model name.
-     */
-    protected function getModelTemplate($modelName)
+    protected function getTemplate($modelName)
     {
+        $quote = Quotes::getRandomQuote();
+        $splitName = explode("/", $modelName);
+        $modelName = ucfirst($splitName[count($splitName) - 1]);
         return "<?php
 
 namespace App\Models;
@@ -50,6 +57,7 @@ namespace App\Models;
 class $modelName
 {
     // Define your model properties and methods here
+    // $quote
 }
 ";
     }

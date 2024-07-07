@@ -4,7 +4,7 @@ namespace App\Cli;
 
 class Quotes
 {
-    protected function getRandomQuote()
+    public static function getRandomQuote()
     {
 
         $quotes = [

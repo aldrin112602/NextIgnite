@@ -2,57 +2,55 @@
 
 namespace App\Cli;
 
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+
 class MakeControllerCommand extends Command
 {
-
-    /**
-     * This method is responsible for running the command to create a new controller.
-     *
-     * @param array $args The command line arguments. The first argument should be the name of the controller.
-     *
-     * @return void
-     */
-    public function run($args)
+    protected function configure()
     {
-        if (count($args) < 1) {
-            echo "\033[36m Usage: composer ignite make:controller <ControllerName> \033[0m\n";
-            exit(1);
+        $this
+            ->setName('make:controller')
+            ->setDescription('Creates a new controller file')
+            ->addArgument('controllerName', InputArgument::REQUIRED, 'The name of the controller file to create');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $controllerName = str_replace('.', '/', $input->getArgument('controllerName'));
+
+        $path = __DIR__ . "/../Controllers/{$controllerName}.php";
+        $dir = dirname($path);
+
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
         }
 
-        $controllerName = $args[0];
-        $controllerPath = __DIR__ . '/../Controllers/' . str_replace('.', '/', $controllerName) . '.php';
-        $controllerDir = dirname($controllerPath);
+        if (!file_exists($path)) {
+            file_put_contents($path, $this->getTemplate($controllerName));
+            $quote = Quotes::getRandomQuote();
+            $output->writeln("<info>Controller created successfully at: {$path}</info>");
 
-        if (file_exists($controllerPath)) {
-            echo "\033[31m Controller already exists: $controllerPath \033[0m\n";
-            exit(1);
+            $style = new OutputFormatterStyle('yellow');
+            $output->getFormatter()->setStyle('quote', $style);
+            $output->writeln("<quote>Quote: {$quote}</quote>");
+        } else {
+            $output->writeln("<error>Controller already exists: {$path}</error>");
         }
 
-        if (!is_dir($controllerDir)) {
-            mkdir($controllerDir, 0777, true);
-        }
-
-        $viewTemplate = $this->getControllerTemplate($controllerName);
-
-        file_put_contents($controllerPath, $viewTemplate);
-
-        echo "\033[32m Controller created successfully at: $controllerPath  \033[0m\n";
-        echo "\033[33m Quote: " . $this->getRandomQuote() . "\033[0m\n";
+        return Command::SUCCESS;
     }
 
 
-
-    /**
-     * This method generates a controller template with a given name.
-     *
-     * @param string $controllerName The name of the controller. It can include namespaces separated by dots.
-     *
-     * @return string The controller template as a string.
-     */    protected function getControllerTemplate($controllerName)
+    protected function getTemplate($controllerName)
     {
-        $quote = $this->getRandomQuote();
-        $splitName = explode(".", $controllerName);
-        $controllerName = count($splitName) == 1 ? $controllerName : $splitName[count($splitName) - 1];
+        $quote = Quotes::getRandomQuote();
+        $splitName = explode("/", $controllerName);
+        $controllerName = ucfirst($splitName[count($splitName) - 1]);
+
         return "<?php
 
 namespace App\Controllers;
