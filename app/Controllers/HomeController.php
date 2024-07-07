@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $this->view('home/index');
+        $data = ['title' => 'Home Page'];
+        $this->view('home/index', $data);
     }
 
     public function sendEmail()
