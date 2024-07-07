@@ -36,6 +36,8 @@ class MakeControllerCommand extends Command
     protected function getControllerTemplate($controllerName)
     {
         $quote = $this->getRandomQuote();
+        $splitName = explode(".", $controllerName);
+        $controllerName = count($splitName) == 1 ? $controllerName : $splitName[count($splitName) - 1];
         return "<?php
 
 namespace App\Controllers;
