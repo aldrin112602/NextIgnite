@@ -22,11 +22,11 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
 | Command                                       | Description                                                      | Output                                        |
 |-----------------------------------------------|------------------------------------------------------------------|-----------------------------------------------|
 | `php ignite serve`                            | Starts the development server at: `http://localhost:8000/`       | -                                             |
-| `composer ignite make:view SampleView`        | Creates a view file                                              | `app/Views/SampleView.nxt.php`                |
-| `composer ignite make:view auth.signUp`       | Creates a view file in the `auth` directory                      | `app/Views/auth/signUp.nxt.php`               |
-| `composer ignite make:controller MyController`| Creates a controller file                                        | `app/Controllers/MyController.php`            |
-| `composer ignite make:controller admin.MyController` | Creates a controller file in the `admin` directory          | `app/Controllers/admin/MyController.php`      |
-| `composer ignite make:model SampleModel`      | Creates a model file                                             | `app/Models/SampleModel.php`                  |
+| `php ignite make:view SampleView`             | Creates a view file                                              | `app/Views/SampleView.nxt.php`                |
+| `php ignite make:view auth.signUp`            | Creates a view file in the `auth` directory                      | `app/Views/auth/signUp.nxt.php`               |
+| `php ignite make:controller MyController`     | Creates a controller file                                        | `app/Controllers/MyController.php`            |
+| `php ignite make:controller admin.MyController` | Creates a controller file in the `admin` directory          | `app/Controllers/admin/MyController.php`      |
+| `php ignite make:model SampleModel`           | Creates a model file                                             | `app/Models/SampleModel.php`                  |
 
 
 1. **Create a new project directory:**
