@@ -3,26 +3,15 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Mailer;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $data = ['title' => 'Home Page'];
-        $this->view('home/index', $data);
+        // show default welcome page: app/Views/welcome.nxt.php
+        $this->view('welcome');
     }
+        // Add methods here
+        // Quotes: "Life is not a problem to be solved, but a reality to be experienced. - Soren Kierkegaard"
 
-    public function sendEmail()
-    {
-        $mailer = new Mailer();
-        $mailer->sendMail(
-            'caballeroaldrin02@gmail.com',
-            'Test Email',
-            '<p>This is a test email</p>',
-            'This is a test email'
-        );
-
-        $this->view('home/index');
-    }
 }
