@@ -26,9 +26,9 @@ class ServeCommand extends Command
     {
         $output->writeln('<info>Starting Next-ignite development server...</info>');
         $output->writeln('Server running at http://localhost:8000');
-        
 
-        $documentRoot = __DIR__;
+        // set default route to public/
+        $documentRoot = __DIR__ . "/public";
         passthru("php -S localhost:8000 -t $documentRoot");
         
         return Command::SUCCESS;

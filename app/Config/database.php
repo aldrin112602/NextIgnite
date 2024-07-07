@@ -1,6 +1,6 @@
 <?php
 session_start();
-$config = require_once 'config.php';
+$config = require_once __DIR__ . '/config.php';
 
 // Extract database configuration
 $dbConfig = $config['database'];

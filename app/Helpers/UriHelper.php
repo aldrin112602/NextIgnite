@@ -31,8 +31,7 @@ class UriHelper
      */
     public static function removeParams($uri)
     {
-        $parsedUrl = parse_url($uri);
-        $url = $parsedUrl['path'];
-        return $url;
+        $uriParts = explode('?', $uri);
+        return $uriParts[0];
     }
 }

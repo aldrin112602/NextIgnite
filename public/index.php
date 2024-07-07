@@ -1,7 +1,7 @@
 <?php
 
-require_once '../vendor/autoload.php';
-require_once '../app/Config/app.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../app/Config/app.php';
 
 use App\Helpers\UriHelper;
 use Dotenv\Dotenv;
@@ -9,6 +9,8 @@ use Dotenv\Dotenv;
 // Load .env file
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
+
+
 
 /**
  * Extracts the route parts from the request URI based on the given base path.
@@ -25,11 +27,15 @@ function extractRoute($basePath)
     return $routeParts;
 }
 
-$basePath = '/' . array_filter(explode('/', $_SERVER['REQUEST_URI']))[1] . '/';
-$routeParts = extractRoute($basePath);
-$uri = '/' . UriHelper::removeParams($routeParts[count($routeParts) - 1]);
+$routeKey = 0; // default route key
+$routeParts = extractRoute($_ENV['BASE_URL']);
+foreach ($routeParts as $key => $routeValue) {
+    $routeKey = $key;
+}
 
-// import router here
-require_once '../app/Routes/web.php';
+$uri = '/' . UriHelper::removeParams($routeParts[$routeKey]);
+
+// Import router
+require_once __DIR__ . '/../app/Routes/web.php';
 
 $router->dispatch($uri);

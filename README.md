@@ -16,14 +16,18 @@ NextIgnite is a light-weight PHP framework designed for building full-stack web 
 - `cd NextIgnite`
 - `composer install`
 
-## Available CLI commands
-- `composer ignite make:view SampleView` Output: `app/Views/SampleView.nxt.php`
-- `composer ignite make:view auth.signUp` Output: `app/Views/auth/signUp.nxt.php`
-- `composer ignite make:controller MyController` Output: `app/Controllers/MyController.php`
-- `composer ignite make:controller admin.MyController` Output: `app/Controllers/admin/MyController.php`
-- `composer ignite make:model SampleModel` Output: `app/Models/SampleModel.php`
 
-## Getting Started
+## Available CLI Commands
+
+| Command                                       | Description                                                      | Output                                        |
+|-----------------------------------------------|------------------------------------------------------------------|-----------------------------------------------|
+| `php ignite serve`                            | Starts the development server at: `http://localhost:8000/`       | -                                             |
+| `composer ignite make:view SampleView`        | Creates a view file                                              | `app/Views/SampleView.nxt.php`                |
+| `composer ignite make:view auth.signUp`       | Creates a view file in the `auth` directory                      | `app/Views/auth/signUp.nxt.php`               |
+| `composer ignite make:controller MyController`| Creates a controller file                                        | `app/Controllers/MyController.php`            |
+| `composer ignite make:controller admin.MyController` | Creates a controller file in the `admin` directory          | `app/Controllers/admin/MyController.php`      |
+| `composer ignite make:model SampleModel`      | Creates a model file                                             | `app/Models/SampleModel.php`                  |
+
 
 1. **Create a new project directory:**
 

@@ -14,7 +14,8 @@ $dotenv->load();
 return [
     'app' => [
         'env' => $_ENV['APP_ENV'] ?? null,
-        'debug' => $_ENV['APP_DEBUG'] ?? null
+        'debug' => $_ENV['APP_DEBUG'] ?? null,
+        'base_url' => $_ENV['BASE_URL'] ?? null
     ],
     'database' => [
         'connection' => $_ENV['DB_CONNECTION'] ?? null,
