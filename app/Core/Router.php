@@ -4,7 +4,8 @@ namespace App\Core;
 
 class Router
 {
-    protected $routes = [];
+    protected $getRoutes = [];
+    protected $postRoutes = [];
 
     /**
      * Adds a new route to the router.
@@ -16,7 +17,12 @@ class Router
      */
     public function get($uri, $controller)
     {
-        $this->routes[$uri] = $controller;
+        $this->getRoutes[$uri] = $controller;
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->postRoutes[$uri] = $controller;
     }
 
     /**
@@ -29,8 +35,8 @@ class Router
     public function dispatch($uri)
     {
         // Check if a route exists for the given URI
-        if (array_key_exists($uri, $this->routes)) {
-            [$controller, $method] = $this->routes[$uri];
+        if (array_key_exists($uri, $this->getRoutes)) {
+            [$controller, $method] = $this->getRoutes[$uri];
             $controller = new $controller;
             $controller->{$method}();
         } else {
