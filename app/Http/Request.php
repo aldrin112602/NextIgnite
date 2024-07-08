@@ -2,6 +2,9 @@
 
 namespace App\Http;
 
-class Request {
-    
+class Request 
+{
+    public function validation($requiredData = []): array|string|\Error {
+        return [];
+    }
 }

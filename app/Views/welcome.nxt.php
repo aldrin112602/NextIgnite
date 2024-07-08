@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Next-Ignite</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-gray-100">
+    <nav class="bg-white py-5 md:px-12 px-4 shadow-lg w-100 flex justify-between">
+        <h1 class="text-2xl font-bold text-blue-900">Next-Ignite</h1>
+        <ul class="flex gap-7 justify-end">
+            <li>
+                <a href="/" class="text-blue-900">Home</a>
+            </li>
+            <li>
+                <a href="/login" class="text-blue-900">Login</a>
+            </li>
+            <li>
+                <a href="/signup" class="text-blue-900">Signup</a>
+            </li>
+        </ul>
+    </nav>
     <div class="max-w-4xl mx-auto mt-8 p-8 bg-white rounded shadow-lg">
-        <h1 class="text-3xl font-bold my-5 text-blue-600">Welcome to Next-Ignite ✨</h1>
+        <h1 class="text-3xl font-bold my-5 text-blue-900">Welcome to Next-Ignite ✨</h1>
         <p class="text-gray-700">Next-Ignite is a modern PHP framework for building web applications developed by Aldrin Caballero.</p>
 
         <p class="text-gray-500 mt-4">This is your custom welcome page using Tailwind CSS.</p>
@@ -31,8 +47,9 @@
         </div>
     </div>
 
-    <div class="mt-8 text-center text-gray-600">
+    <div class="mt-8 text-center text-gray-600 pb-7">
         <p>Powered by <a href="https://github.com/aldrin112602/NextIgnite" class="text-blue-600 hover:underline">Next-Ignite</a></p>
     </div>
 </body>
+
 </html>

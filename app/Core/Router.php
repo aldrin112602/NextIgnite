@@ -34,6 +34,7 @@ class Router
      */
     public function dispatch($uri)
     {
+        // For GET request
         // Check if a route exists for the given URI
         if (array_key_exists($uri, $this->getRoutes)) {
             [$controller, $method] = $this->getRoutes[$uri];
@@ -41,6 +42,18 @@ class Router
             $controller->{$method}();
         } else {
             echo "404 Not Found";
+        }
+
+
+        // For POST request
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (array_key_exists($uri, $this->postRoutes)) {
+                [$controller, $method] = $this->postRoutes[$uri];
+                $controller = new $controller;
+                $controller->{$method}();
+            } else {
+                echo "404 Not Found";
+            }
         }
     }
 }
